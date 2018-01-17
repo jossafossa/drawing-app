@@ -1,0 +1,266 @@
+body {
+	margin:0px;
+	touch-action: none;
+	position: relative;
+	height:100vh;
+	width:100vw;
+}
+
+p {
+	margin:0;
+}
+
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	-webkit-transform: translateZ(0);
+	 -moz-transform: translateZ(0);
+	 -ms-transform: translateZ(0);
+	 -o-transform: translateZ(0);
+	 transform: translateZ(0);
+	 -webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;           /* Non-prefixed version, currently */
+}
+
+#notifications {
+	position: fixed;
+	width:100%;
+	z-index: 100;
+	pointer-events:none;
+}
+
+#notifications .notification {
+	max-width:300px;
+	text-align: center;
+	height: 60px;
+	background:#272727;
+	border-radius: 0 0 10px 10px;
+	margin: auto;
+	position: absolute;
+	left:0;
+	right: 0;
+	opacity: 1;
+	transition:0.2s;
+}
+
+#notifications .notification.fadeout {
+	opacity: 0;
+	transition:1s;
+}
+
+#notifications .notification.fadein {
+	opacity: 0;
+}
+
+#notifications .notification p {
+	margin:0;
+	line-height: 60px;
+	font-family: Roboto Slab , 'sans-serif';
+	color: white;
+}
+
+#cursors {
+	display: none;
+}
+
+#cursors.visible {
+	display: block
+}
+
+.cursor, .cursor-right {
+	position: fixed;
+	width:5px;
+	height:5px;
+	border-radius:50%;
+	background:black;
+	pointer-events:none;
+	z-index: 1000000;
+}
+
+#paper {
+	cursor: none;
+	position: relative;
+	transform:translateZ(0);
+}
+
+#paper canvas {
+	position: absolute;
+	top:0;
+	right:0;
+	-webkit-user-select:none;
+}
+
+menu {
+	position: fixed;
+	top:0;
+	left:-250px;
+	width:250px;
+	background:whitesmoke;
+	margin:0;
+	padding:0;
+	height:100vh;
+	font-family: Roboto Slab , 'sans-serif';
+	border-right: rgba(0,0,0,0.1) 1px solid;
+	transition:0.2s;
+}
+
+menu.active {
+	left:0;
+}
+
+.menu-toggle {
+	background-color: #E5E5E5 !important;
+	cursor: pointer;
+}
+
+.menu-item-group.closed {
+	height:40px;
+	overflow: hidden
+}
+
+.menu-item-group.closed .menu-toggle span:after {
+	content:'\f078';
+}
+
+.menu-item-group .menu-toggle span:after {
+	content:'\f077';
+}
+
+menu #hide-menu {
+	width:40px;
+	height:40px;
+	position: absolute;
+	right:-40px;
+	background:#272727;
+	text-align: center;
+	cursor: pointer;
+}
+
+menu #hide-menu:after {
+	content:'\f0c9';
+	font-family: FontAwesome;
+	color:white;
+	font-size: 28px;
+	line-height: 40px;
+}
+
+menu .menu-item {
+	width: 100%;
+	display: block;
+	font-size: 14px;
+	padding: 10px 20px;
+	text-align: left;
+	border:none;
+	border-bottom: rgba(0,0,0,0.1) 1px solid;
+	outline: none;
+	background: whitesmoke;
+	border-top: 0;
+	margin: auto;
+	position: relative;
+	color:#5F5F5F;
+	-webkit-user-select:none; /* needs more webkits */
+	font-family: Roboto Slab , 'sans-serif';
+}
+
+menu .menu-scroll {
+	height:100%;
+	overflow-y:auto; 
+}
+
+menu p {
+	display: inline-block;
+}
+
+menu .menu-item-group .toggle-btn span, .menu-item-group .menu-toggle span {
+	height: 20px;
+	width: 20px;
+	line-height: 20px;
+	display: inline-block;
+	text-align: center;
+	float: right;
+}
+
+menu .menu-item-group .toggle-btn span:after, .menu-item-group .menu-toggle span:after  {
+	font-family: FontAwesome;
+}
+
+menu .menu-item-group .toggle-btn.active span:after {
+	content: '\f00c'
+}
+
+menu .menu-item-group .toggle-btn {
+	cursor: pointer;
+}
+
+menu .menu-item-group .toggle-btn:hover {
+	background:#E9E9E9;
+}
+
+menu .shortcut {
+	display: inline-block;
+	background: gray;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	color: white;
+	border-radius: 3px;
+	margin-left: -10px;
+	margin-right: 10px;
+	font-size:11px;
+	vertical-align: baseline;
+	line-height: 20px;
+}
+
+menu .devider {
+	margin:10px 0px;
+	width:100%;
+}
+
+menu #line-properties label, menu #line-properties input {
+	width: 100%;
+	display: block;
+	font-size: 14px;
+	padding: 10px 20px;
+	border:none;
+	border-bottom: rgba(0,0,0,0.1) 1px solid;
+	outline: none;
+	background: whitesmoke;
+	border-top: 0;
+	margin: auto;
+	position: relative;
+	color:#5F5F5F;
+}
+
+menu #line-properties input {
+	background:white;
+}
+
+
+/* bottom menu */
+
+#bottom-menu {
+	background-color:#272727;
+	position: fixed;
+	bottom:0;
+	left:0;
+	z-index: 12;
+	display: flex;
+}
+
+#bottom-menu div {
+	height:40px;
+	width:40px;
+	border-right:1px solid #1B1B1B;
+	background-color:#272727;
+	color:white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size:24px;
+	cursor: pointer;
+}
